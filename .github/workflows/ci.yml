@@ -17,6 +17,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and test
         run: |
-          npm install -D cypress --foreground-scripts
+          npm install cypress --foreground-scripts
           npm install
           npm run ci:test
