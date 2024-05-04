@@ -1,14 +1,14 @@
 name: Continuous Integration
- 
+
 on:
   pull_request:
     branches:
       - master
- 
+
 jobs:
   automation-test-job:
     runs-on: ubuntu-latest
- 
+
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -17,5 +17,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and test
         run: |
+          ./node_modules/.bin/cypress install --force
           npm install
           npm run ci:test
